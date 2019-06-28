@@ -45,7 +45,8 @@ if (commnd === 'add') {
   notes.getNote(argv.title);
 }else if (commnd === 'remove') {
   var noteRemoved = notes.removeNote(argv.title);
-  var message = noteRemoved ? 'note was removed':'note is not removed'
+  var message = noteRemoved ? 'note was removed':'note not found'
+  console.log(message);
 }else {
   console.log('commnd not recognize');
 }
