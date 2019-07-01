@@ -30,18 +30,23 @@ var commnd = process.argv[2];
 // console.log('Yargs : ' , argv);
 
 if (commnd === 'add') {
-  note = notes.addNote(argv.title, argv.body);
+  var note = notes.addNote(argv.title, argv.body);
   if (note) {
     console.log('Note created.');
-    console.log('-----');
-    console.log(`Title : ${ note.title }`);
-    console.log(`Body : ${ note.body }`);
+    notes.logNote(note);
   }else{
     console.log('this title is already exists.');
   }
 }else if (commnd === 'list') {
   notes.getAll();
 }else if (commnd === 'read') {
+  var note = notes.getNote(argv.title);
+  if (note) {
+    console.log('Note readed.');
+    notes.logNote(note);
+  }else{
+    console.log('this note not found');
+  }
   notes.getNote(argv.title);
 }else if (commnd === 'remove') {
   var noteRemoved = notes.removeNote(argv.title);
