@@ -1,4 +1,4 @@
-console.log('Starting app.js');
+// sconsole.log('Starting app.js');
 
 const fs = require('fs');
 // const os = require('os');
@@ -38,7 +38,9 @@ if (commnd === 'add') {
     console.log('this title is already exists.');
   }
 }else if (commnd === 'list') {
-  notes.getAll();
+  var allNotes = notes.getAll();
+  console.log(`printing ${ allNotes.length } note(s)`);
+  allNotes.forEach((note) => notes.logNote(note));
 }else if (commnd === 'read') {
   var note = notes.getNote(argv.title);
   if (note) {

@@ -1,7 +1,7 @@
-console.log('Starting notes.js');
+// console.log('Starting notes.js');
 const fs = require('fs');
 
-module.exports.age = 28;
+// module.exports.age = 28;
 
 var fetchNotes = () => {
   try {
@@ -30,7 +30,7 @@ if (duplicateNotes.length === 0) {
 }
 
 var getAll = () => {
-  console.log('Getting all notes');
+  return fetchNotes();
 }
 
 var getNote = (title) => {
