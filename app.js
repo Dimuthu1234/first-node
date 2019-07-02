@@ -23,7 +23,32 @@ const notes = require('./notes.js');
 
 // var filteredArray = _.uniq(['sandaruwan', 1, 'dimuthu', 1, 2, 3, 4, 5])
 // console.log(filteredArray);
-var argv = yargs.argv;
+const titleOption = {
+  describe: 'Title of note',
+  demand: true,
+  alias: 't'
+};
+
+const bodyOption = {
+  describe: 'Body of note',
+  demand: true,
+  alias: 'b'
+};
+
+var argv = yargs
+.command('add', 'add a new note', {
+  title: titleOption,
+  body: bodyOption
+})
+.command('list', 'list all notes')
+.command('read', 'Read a note', {
+  title: titleOption
+})
+.command('remove', 'Removing a note', {
+  title: titleOption
+})
+.help()
+.argv;
 var commnd = process.argv[2];
 
 // console.log('Process : ', process.argv);
